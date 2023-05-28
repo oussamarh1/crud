@@ -20,15 +20,15 @@ function connecter_db()
 
 
 //ajouter un produit
-function ajouter_produit($libelle, $prix, $qte)
+function ajouter_produit($libelle, $prix, $qte, $categorie_id = 1)
 {
     try {
         //connextion
         $cnx = connecter_db();
         //preparation la requete
-        $rp = $cnx->prepare("insert into produit (libelle,prix,qte) values(?,?,?)");
+        $rp = $cnx->prepare("insert into produit (libelle,prix,qte,categorie_id) values(?,?,?,?)");
         //execute la requete
-        $rp->execute([$libelle, $prix, $qte]);
+        $rp->execute([$libelle, $prix, $qte, $nomcategorie = 1]);
     } catch (PDOException  $e) {
         echo "Erreur d'ajout de produit  " . $e->getMessage();
     }

@@ -10,7 +10,13 @@
                     <a class="nav-link active" aria-current="page" href="create_produit.php">Nouveau Produit</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Liste Produit</a>
+                    <a class="nav-link" href="liste_produit.php">Liste Produit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="create_cata.php">Nouveau Categorie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="liste_cata.php">Liste Categorie</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
