@@ -1,3 +1,11 @@
+<?php
+require_once "fonction.php";
+$categories = all("categorie");
+
+?>
+
+
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -23,8 +31,9 @@
                         Dropdown
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <?php foreach ($categories as $c) { ?>
+                            <li><a class="dropdown-item" href="liste_produit.php?categorie_id=<?= $c['id'] ?>"><?= $c['nomcategorie'] ?></a></li>
+                        <?php } ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

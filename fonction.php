@@ -20,7 +20,7 @@ function connecter_db()
 
 
 //ajouter un produit
-function ajouter_produit($libelle, $prix, $qte, $categorie_id = 1)
+function ajouter_produit($libelle, $prix, $qte, $categorie_id)
 {
     try {
         //connextion
@@ -28,7 +28,7 @@ function ajouter_produit($libelle, $prix, $qte, $categorie_id = 1)
         //preparation la requete
         $rp = $cnx->prepare("insert into produit (libelle,prix,qte,categorie_id) values(?,?,?,?)");
         //execute la requete
-        $rp->execute([$libelle, $prix, $qte, $nomcategorie = 1]);
+        $rp->execute([$libelle, $prix, $qte, $categorie_id]);
     } catch (PDOException  $e) {
         echo "Erreur d'ajout de produit  " . $e->getMessage();
     }
@@ -85,7 +85,7 @@ function supprimer($id, $table)
 
 
 
-// lister les produits 
+// lister les produits des categories 
 function all($table)
 {
     try {
@@ -95,7 +95,7 @@ function all($table)
 
         return $rp->fetchAll();
     } catch (PDOException  $e) {
-        echo "Erreur de selection de produit  " . $e->getMessage();
+        echo "Erreur de selection de $table  " . $e->getMessage();
     }
 }
 function findById($id, $table)
@@ -107,16 +107,16 @@ function findById($id, $table)
 
         return $rp->fetch();
     } catch (PDOException  $e) {
-        echo "Erreur de selection de produit  " . $e->getMessage();
+        echo "Erreur de selection de $table  " . $e->getMessage();
     }
 }
 // lister les produits 
-function YatilProduitDansCategorie($categorie_id) //(id)
+function YatilProduitDansCategorie($id) //(id)
 {
     try {
         $cnx = connecter_db();
         $rp = $cnx->prepare("select * from produit where categorie_id=? ");
-        $rp->execute([$categorie_id]); //(id)
+        $rp->execute([$id]); //(id)
 
         $resultat = $rp->fetchAll();
         return !empty($resultat);

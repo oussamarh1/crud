@@ -1,6 +1,7 @@
 <?php
 require_once "fonction.php";
-$produits = all("produit");
+
+$produits = ProuitEtCategorie();
 
 
 //print_r($produit);
@@ -36,6 +37,7 @@ $produits = all("produit");
                     <th>libelle</th>
                     <th>prix</th>
                     <th>qte</th>
+                    <th>Categorie</th>
 
 
                     <th>Actions</th>
@@ -49,6 +51,7 @@ $produits = all("produit");
                         <td><?= $p['libelle'] ?></td>
                         <td><?= $p['prix'] ?></td>
                         <td><?= $p['qte'] ?></td>
+                        <td><?= $p['nomcategorie'] ?></td>
 
 
 

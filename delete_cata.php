@@ -1,5 +1,10 @@
 <?php
 include "fonction.php";
 $id = $_GET['id'];
-supprimer($id, "categorie");
-header("location:liste_cata.php");
+if (YatilProduitDansCategorie($id)) {
+    header("location:liste_cata.php?e=err");
+    exit();
+} else {
+    supprimer($id, "categorie");
+    header("location:liste_cata.php?m=yap");
+}
