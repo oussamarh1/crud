@@ -1,9 +1,11 @@
 <?php
 require_once "fonction.php";
 
-$produits = ProuitEtCategorie();
-
-
+if (isset($_GET['categorie_id'])) {
+    $produits = ProuitEtCategorieParCategorieId($_GET['categorie_id']);
+} else {
+    $produits = ProuitEtCategorie();
+}
 //print_r($produit);
 ?>
 <!DOCTYPE html>

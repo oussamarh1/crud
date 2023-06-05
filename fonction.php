@@ -35,12 +35,12 @@ function ajouter_produit($libelle, $prix, $qte, $categorie_id)
 }
 // modifier une produit 
 
-function modifier_produit($libelle, $prix, $qte, $id)
+function modifier_produit($libelle, $prix, $qte, $categorie_id, $id)
 {
     try {
         $cnx = connecter_db();
-        $rp = $cnx->prepare("update produit set libelle=?,prix=?,qte=? where id =?");
-        $rp->execute([$libelle, $prix, $qte, $id]);
+        $rp = $cnx->prepare("update produit set libelle=?,prix=?,qte=?,categorie_id=? where id =?");
+        $rp->execute([$libelle, $prix, $qte, $categorie_id, $id]);
     } catch (PDOException  $e) {
         echo "Erreur de modifier de produit  " . $e->getMessage();
     }
@@ -115,7 +115,7 @@ function YatilProduitDansCategorie($id) //(id)
 {
     try {
         $cnx = connecter_db();
-        $rp = $cnx->prepare("select * from produit where categorie_id=? ");
+        $rp = $cnx->prepare("select * from produit where ca tegorie_id=?  ");
         $rp->execute([$id]); //(id)
 
         $resultat = $rp->fetchAll();
@@ -159,7 +159,7 @@ function rechercher($mc)
 
         return $rp->fetchAll();
     } catch (PDOException  $e) {
-        echo "Erreur de recherche de personne  " . $e->getMessage();
+        echo "Erreur de recherche de produit  " . $e->getMessage();
     }
 }
 function test()

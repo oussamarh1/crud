@@ -1,7 +1,9 @@
 <?php
 include "fonction.php";
 $id = $_GET['id']; //13
+
 $produit = findById($id, "produit");
+$categorie = all("categorie");
 //print_r($produit);
 
 ?>
@@ -27,16 +29,29 @@ $produit = findById($id, "produit");
                 <form action="update_produit.php" method="post">
                     <input type="hidden" name="id" id="" value="<?= $produit['id'] ?>">
                     <div class="mb-3">
-                        <label for="libelle" class="form-label"> libelle : </label> <input class="form-control" type="text" name="libelle" id="libelle" value="<?= $produit['libelle'] ?>">
+                        <label for="libelle" class="form-label"> libelle : </label>
+                        <input class="form-control" type="text" name="libelle" id="libelle" value="<?= $produit['libelle'] ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="prix" class="form-label"> prix : </label> <input class="form-control" type="text" name="prix" id="prix" value="<?= $produit['prix'] ?>">
+                        <label for="prix" class="form-label"> prix : </label>
+                        <input class="form-control" type="text" name="prix" id="prix" value="<?= $produit['prix'] ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="qte" class="form-label"> qte : </label> <input class="form-control" type="text" name="qte" id="qte" value="<?= $produit['qte'] ?>">
+                        <label for="qte" class="form-label"> qte : </label>
+                        <input class="form-control" type="text" name="qte" id="qte" value="<?= $produit['qte'] ?>">
                     </div>
 
-
+                    <div class="mb-3">
+                        <label for="categorie_id" class="form-label"> Categorie : </label>
+                        <select value="<?= $produit['categorie_id'] ?>" type="text" name="categorie_id" id="categorie_id">
+                            <?php foreach ($categorie as $c) { ?>
+                                <option <?php if ($c['id'] === $produit['categorie_id']) echo "selected"; ?> value="<?= $c['id'] ?>"><?= $c['nomcategorie'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <?php foreach ($categorie as $c) { ?>
+                            <label> <?= $c['nomcategorie'] ?> <input type="radio" name="categorie_id" <?php if ($c['id'] === $produit['categorie_id']) echo "checked"; ?> value="<?= $c['id'] ?>"></input></label>
+                        <?php } ?>
+                    </div>
 
                     <button type="submit" class="btn btn-primary">modifier le produit</button>
                 </form>
