@@ -40,7 +40,7 @@ $categorie = all("categorie");
         </div>
 
         <div class="container">
-            <h5 class="text-center text-warning my-5">Liste des produit </h5>
+            <h5 class="text-center text-warning my-5">Liste Des Categories </h5>
             <div>
                 <form action="liste.php" method="get">
                     Mot clé : <input type="text" name="mc" id=""> <button>Ok</button>

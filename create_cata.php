@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 border mx-auto mt-5 p-3 shadow">
-                <h5 class="text-center mb-2 text-danger">Ajouter Produit: </h5 class="text-center mb-2 text-danger">
+                <h5 class="text-center mb-2 text-danger">Ajouter Categorie : </h5 class="text-center mb-2 text-danger">
                 <form action="store_cata.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
 

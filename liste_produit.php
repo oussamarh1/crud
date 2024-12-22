@@ -26,7 +26,7 @@ if (isset($_GET['categorie_id'])) {
 
 
     <div class="container">
-        <h5 class="text-center text-warning my-5">Liste des produit </h5>
+        <h5 class="text-center text-warning my-5">Liste Des Produits </h5>
         <div>
             <form action="liste.php" method="get">
                 Mot clé : <input type="text" name="mc" id=""> <button>Ok</button>
@@ -36,9 +36,9 @@ if (isset($_GET['categorie_id'])) {
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>libelle</th>
-                    <th>prix</th>
-                    <th>qte</th>
+                    <th>Libelle</th>
+                    <th>P`rix</th>
+                    <th>Quantité De Stock</th>
                     <th>Categorie</th>
 
 

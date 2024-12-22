@@ -26,7 +26,7 @@ $categories = all("categorie")
     <div class="container">
         <div class="row">
             <div class="col-md-6 border mx-auto mt-5 p-3 shadow">
-                <h5 class="text-center mb-2 text-danger">Ajouter Produit: </h5 class="text-center mb-2 text-danger">
+                <h5 class="text-center mb-2 text-danger">Ajouter Des Produits : </h5 class="text-center mb-2 text-danger">
                 <form action="store_produit.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
 
@@ -38,7 +38,7 @@ $categories = all("categorie")
                         <input class="form-control" type="text" name="prix" id="prix">
                     </div>
                     <div class="mb-3">
-                        <label for="qte" class="form-label"> qte : </label>
+                        <label for="qte" class="form-label"> Quantité De Stock : </label>
                         <input class="form-control" type="text" name="qte" id="qte">
                     </div>
                     <div class="mb-3">

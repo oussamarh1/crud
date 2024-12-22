@@ -115,7 +115,7 @@ function YatilProduitDansCategorie($id) //(id)
 {
     try {
         $cnx = connecter_db();
-        $rp = $cnx->prepare("select * from produit where ca tegorie_id=?  ");
+        $rp = $cnx->prepare("select * from produit where categorie_id=?  ");
         $rp->execute([$id]); //(id)
 
         $resultat = $rp->fetchAll();
